@@ -1,0 +1,18 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  security:
+    oauth2:
+      resource-server:
+        opaque-token:
+          client-id: ${CLIENT_ID}
+          client-secret: ${CLIENT_SECRET}
+          introspection-uri: ${INTROSPECTION_URI:}
+logging:
+  level:
+    org:
+      springframework:
+        security: ${LOG_LEVEL:DEBUG}
+        web:
+          client:
+            RestTemplate: ${LOG_LEVEL:DEBUG}

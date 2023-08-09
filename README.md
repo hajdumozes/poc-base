@@ -8,3 +8,4 @@ Also, as a side effect it demonstrates how a multi-module maven application oper
 
 - [Base](base/README.md): a simple web API delegating CRUD operations for an entity
 - [Test container](test-container/README.md): integration testing with test containers
+- [Oauth2 Introspection](oauth2-introspection/README.md): oauth authentication using introspection

@@ -111,5 +111,6 @@
     <modules>
         <module>base</module>
         <module>test-container</module>
+        <module>oauth2-introspection</module>
     </modules>
 </project>

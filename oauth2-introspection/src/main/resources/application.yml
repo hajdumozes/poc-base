@@ -7,7 +7,7 @@ spring:
         opaque-token:
           client-id: ${CLIENT_ID}
           client-secret: ${CLIENT_SECRET}
-          introspection-uri: ${INTROSPECTION_URI:}
+          introspection-uri: ${INTROSPECTION_URI}
 logging:
   level:
     org:

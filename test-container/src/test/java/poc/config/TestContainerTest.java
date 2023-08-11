@@ -1,5 +1,6 @@
-package poc;
+package poc.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,8 +14,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
-import poc.config.WebConfig;
 
 @SpringBootTest(classes = {WebConfig.class})
 @ActiveProfiles("integration-test")
@@ -26,7 +25,8 @@ public abstract class TestContainerTest {
     private static final PostgreSQLContainer<?> postgreSQLContainer;
     private static final String ddlAuto = "create-drop";
 
-    protected static final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    protected ObjectMapper objectMapper;
 
     @Autowired
     protected MockMvc mockMvc;
@@ -35,7 +35,6 @@ public abstract class TestContainerTest {
     private WebApplicationContext webApplicationContext;
 
     static {
-        objectMapper.findAndRegisterModules();
         postgreSQLContainer = new PostgreSQLContainer<>(imageVersion);
         postgreSQLContainer.start();
     }

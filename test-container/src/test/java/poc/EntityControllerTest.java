@@ -6,11 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectWriter;
 import poc.base.dto.EntityDto;
 import poc.base.entity.Entity;
 import poc.base.mapper.EntityMapper;
 import poc.base.repository.EntityRepository;
+import poc.config.TestContainerTest;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,8 +31,6 @@ class EntityControllerTest extends TestContainerTest {
 
     @Autowired
     EntityMapper mapper;
-
-    final ObjectWriter objectWriter = objectMapper.writer().withDefaultPrettyPrinter();
 
     @BeforeEach
     void init() {
@@ -88,7 +86,7 @@ class EntityControllerTest extends TestContainerTest {
         // when
         mockMvc.perform(post(BASE_PATH)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectWriter.writeValueAsString(entityToStore)))
+                        .content(objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(entityToStore)))
                 .andExpect(status().isOk());
 
         // then
@@ -106,7 +104,7 @@ class EntityControllerTest extends TestContainerTest {
         // when
         mockMvc.perform(put(String.format("%s/%s", BASE_PATH, persistedId))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectWriter.writeValueAsString(update)))
+                        .content(objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(update)))
                 .andExpect(status().isOk());
 
         // then

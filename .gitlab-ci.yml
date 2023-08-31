@@ -22,8 +22,8 @@ sonarqube-check-base:
     - mvn verify sonar:sonar -e -f ./base/pom.xml -DdataDirectory=/owasp --settings $(pwd)/settings.xml -Dsonar.projectKey=${CI_SONAR_PROJECT_KEY} -Dsonar.projectName=${CI_SONAR_PROJECT_NAME} -Dsonar.qualitygate=true
 
 
-sonarqube-check-basoauth2-introspectione:
-  stage: sonarqube-check-basoauth2-introspectione
+sonarqube-check-basoauth2-introspection:
+  stage: sonarqube-check-basoauth2-introspection
   image: registry.areus-rnd.com/devops-demo-projects/baseimages/temurin-jdk-alpine:latest
   variables:
     SONAR_USER_HOME: "${CI_PROJECT_DIR}/oauth2-introspection/.sonar"  # Defines the location of the analysis task cache

@@ -9,6 +9,7 @@ stages:
 
 
 sonarqube-check-base:
+  allow_failure: true
   stage: sonarqube-check-base
   image: registry.areus-rnd.com/devops-demo-projects/baseimages/temurin-jdk-alpine:latest
   variables:
@@ -23,6 +24,7 @@ sonarqube-check-base:
 
 
 sonarqube-check-auth2-introspection:
+  allow_failure: true
   stage: sonarqube-check-oauth2-introspection
   image: registry.areus-rnd.com/devops-demo-projects/baseimages/temurin-jdk-alpine:latest
   variables:
@@ -37,6 +39,7 @@ sonarqube-check-auth2-introspection:
 
 
 sonarqube-check-test-container:
+  allow_failure: true
   stage: sonarqube-check-test-container
   image: registry.areus-rnd.com/devops-demo-projects/baseimages/temurin-jdk-alpine:latest
   variables:

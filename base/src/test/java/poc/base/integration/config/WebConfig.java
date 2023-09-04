@@ -1,4 +1,4 @@
-package poc.config;
+package poc.base.integration.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -15,5 +15,4 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableJpaRepositories(basePackages = "poc.base.repository")
 @ComponentScan(basePackages = {"poc.base"})
 public class WebConfig implements WebMvcConfigurer {
-
 }

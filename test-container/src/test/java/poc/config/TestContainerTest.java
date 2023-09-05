@@ -16,7 +16,6 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @SpringBootTest(classes = {WebConfig.class})
-@ActiveProfiles("integration-test")
 @Testcontainers
 @AutoConfigureMockMvc
 @WebAppConfiguration

@@ -1,4 +1,4 @@
-package poc;
+package poc.base.integration;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import poc.base.dto.EntityDto;
 import poc.base.entity.Entity;
+import poc.base.integration.config.AbstractIntegrationTest;
 import poc.base.mapper.EntityMapper;
 import poc.base.repository.EntityRepository;
-import poc.config.TestContainerTest;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
-class EntityControllerTest extends TestContainerTest {
+public class EntityControllerTest extends AbstractIntegrationTest {
     public static final String BASE_PATH = "/entities";
 
     @Autowired
@@ -125,5 +125,4 @@ class EntityControllerTest extends TestContainerTest {
         // then
         assertTrue(repository.findAll().isEmpty());
     }
-
 }

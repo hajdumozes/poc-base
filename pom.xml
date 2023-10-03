@@ -163,9 +163,23 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>areus-internal</id>
+            <name>Areus Releases</name>
+            <url>http://leonidas.areus.local:8081/repository/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>areus-internal</id>
+            <name>Areus Snapshots</name>
+            <url>http://leonidas.areus.local:8081/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <modules>
         <module>base</module>
         <module>test-container</module>
         <module>oauth2-introspection</module>
+        <module>cache</module>
     </modules>
 </project>
